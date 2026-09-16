@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURA | Precision Crafted Artifacts</title>
+  <style>
+    /* Grovemade-Inspired Warm Minimalist Palette */
+    :root {
+      --bg-color: #1a1a1a;
+      --card-bg: #242424;
+      --accent-warm: #d4a373;
+      --accent-hover: #faedcd;
+      --text-main: #f4f1de;
+      --text-muted: #a0a0a0;
+      --border-color: #333333;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header & Nav */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 4rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-warm);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+
+    /* Catalog Grid */
+    .catalog-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 2rem 6rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-warm);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 280px;
+      background-color: #2d2d2d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .product-details {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .product-price {
+      font-size: 1rem;
+      color: var(--accent-warm);
+      font-weight: 600;
+    }
+
+    .product-description {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .btn-action {
+      display: block;
+      width: 100%;
+      padding: 0.85rem;
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--accent-warm);
+      border-radius: 2px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-action:hover {
+      background-color: var(--accent-warm);
+      color: var(--bg-color);
+    }
+
+    /* Trust Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 1.5rem; }
+      .hero { padding: 3rem 1.5rem 2rem; }
+      .hero h1 { font-size: 2rem; }
+      .catalog-container { padding: 1rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">AURA DESIGN</div>
+    <nav>
+      <a href="#products">Collection</a>
+      <a href="#custom">Custom Intake</a>
+      <a href="#about">Philosophy</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Tactile Precision. Engineered Forms.</h1>
+    <p>Functional, micro-batch artifacts designed for high-density desks, educational environments, and custom spatial displays.</p>
+  </section>
+
+  <main class="catalog-container" id="products">
+    <div class="product-grid">
+
+      <!-- Product 1 -->
+      <article class="product-card">
+        <div class="product-image">
+          <!-- Placeholder SVG simulation -->
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#d4a373" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="product-details">
+          <div class="product-header">
+            <h2 class="product-title">3D Topographic Terrain Relief</h2>
+            <span class="product-price">$75.00</span>
+          </div>
+          <p class="product-description">High-resolution elevation mapping rendered at 0.16mm layer precision. Crafted from tactile marble-composite PLA.</p>
+          <button class="btn-action">Configure Map</button>
+        </div>
+      </article>
+
+      <!-- Product 2 -->
+      <article class="product-card">
+        <div class="product-image">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#d4a373" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+        </div>
+        <div class="product-details">
+          <div class="product-header">
+            <h2 class="product-title">Modular Kinetic STEM Tile</h2>
+            <span class="product-price">$24.00</span>
+          </div>
+          <p class="product-description">Interlocking geometric manipulative designed for elementary mathematical and mechanical visualization.</p>
+          <button class="btn-action">Add To Cart</button>
+        </div>
+      </article>
+
+      <!-- Product 3 -->
+      <article class="product-card">
+        <div class="product-image">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#d4a373" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <div class="product-details">
+          <div class="product-header">
+            <h2 class="product-title">Instant CAD Quoting Engine</h2>
+            <span class="product-price">Dynamic</span>
+          </div>
+          <p class="product-description">Direct-upload portal for instant FDM prototyping in Matte PLA, PETG, or flexible TPU. Automated batch pricing.</p>
+          <button class="btn-action">Upload File (.STL)</button>
+        </div>
+      </article>
+
+      <!-- Product 4 -->
+      <article class="product-card">
+        <div class="product-image">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#d4a373" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+        </div>
+        <div class="product-details">
+          <div class="product-header">
+            <h2 class="product-title">Articulated Biomechanical Desk Statue</h2>
+            <span class="product-price">$38.00</span>
+          </div>
+          <p class="product-description">Multi-jointed kinetic desktop display featuring zero-assembly print-in-place tolerances.</p>
+          <button class="btn-action">Select Finish</button>
+        </div>
+      </article>
+
+      <!-- Product 5 -->
+      <article class="product-card">
+        <div class="product-image">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#d4a373" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>
+        </div>
+        <div class="product-details">
+          <div class="product-header">
+            <h2 class="product-title">B2B Branding Display Stand</h2>
+            <span class="product-price">$45.00</span>
+          </div>
+          <p class="product-description">Dual-color logo display stands designed for trade shows and corporate desktop accessories.</p>
+          <button class="btn-action">Customize Batch</button>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 AURA DESIGN LABS. PRINTED & ASSEMBLED IN USA.</p>
+  </footer>
+
+</body>
+</html>
